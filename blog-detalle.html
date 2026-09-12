@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Detalle Blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header><h1>TechStore</h1><nav><ul><li><a href="blogs.html">Volver a Blogs</a></li></ul></nav></header>
+    <div class="form-container" style="max-width:800px">
+        <img id="b-img" src="https://via.placeholder.com/600x300" style="width:100%">
+        <h1 id="b-title"></h1>
+        <p id="b-desc"></p>
+    </div>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        if(id === "1") {
+            document.getElementById('b-title').innerText = "Noticias Importantes";
+            document.getElementById('b-desc').innerText = "Este es un contenido largo sobre las noticias tecnológicas más relevantes del año, detallando cada avance en procesadores y pantallas OLED...";
+        } else {
+            document.getElementById('b-title').innerText = "Caso Curioso";
+            document.getElementById('b-desc').innerText = "Aquí exploramos la historia de cómo se creó el primer computador y cómo ha evolucionado hasta llegar a los smartphones actuales...";
+        }
+    </script>
+</body>
+</html>

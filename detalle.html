@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"><title>Detalle Producto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>TechStore</h1>
+        <nav><ul><li><a href="index.html">Home</a></li><li><a href="productos.html">Productos</a></li><li id="cart-count">🛒 Cart (0)</li></ul></nav>
+    </header>
+    <div class="form-container" style="display:flex; gap:20px; max-width:800px; text-align:left">
+        <img id="p-img" src="" style="width:300px; border-radius:10px">
+        <div>
+            <h1 id="p-nombre"></h1>
+            <p id="p-desc"></p>
+            <h2 id="p-precio"></h2>
+            <button id="btn-add" class="btn">Añadir al Carrito</button>
+        </div>
+    </div>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = parseInt(params.get('id'));
+        const p = productos.find(x => x.id === id);
+        if(p) {
+            document.getElementById('p-img').src = p.img;
+            document.getElementById('p-nombre').innerText = p.nombre;
+            document.getElementById('p-desc').innerText = p.desc;
+            document.getElementById('p-precio').innerText = `$${p.precio.toLocaleString()}`;
+            document.getElementById('btn-add').onclick = () => addToCart(p.id);
+        }
+    </script>
+</body>
+</html>
